@@ -9,10 +9,6 @@ console.log("JS loading successfully");
 // console.log(reactRoot);
 // reactRoot.render(elementToRender);
 
-let highPriorityTaskQueue = [];
-let queueIndex = -1;
-let backup = [];
-
 function createTextElement(value) {
   return {
     type: 'TEXT_ELEMENT',
@@ -47,9 +43,18 @@ function Myrender(parentDom, element, deadline) {
   console.log("rendering completed");
 }
 
+function MyUseState(initialState) {
+  let stateReference = initialState;
+  let functionToUpdateState = function (newvalue) {
+    stateReference = newvalue;
+  }
+  return [stateReference, functionToUpdateState]
+}
+
 var MyReact = {
   createElement: myCreateElement,
-  render: Myrender
+  render: Myrender,
+  useState: MyUseState
 }
 
 const elementToRender = MyReact.createElement('div', null,
