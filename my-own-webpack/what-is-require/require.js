@@ -8,8 +8,11 @@
 //    see the below example
 
 const fs = require('fs');
-function implementation1(){
+function implementation1require(){
   const contents = fs.readFileSync(fileName);
+  // read the content parse everthing map the variable to value
+  // complexity increase once we have functions and all
+  // this is basically an compiler 
 }
 
 // 2
