@@ -1,2 +1,2 @@
-const message = "Hello world";
+const message = "Hello World."
 export default message;
