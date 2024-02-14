@@ -20,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:webpack": "webpack ./under-the-hood-webpack/built-with-webpack/index.js -o ./under-the-hood-webpack/built-with-webpack/ --mode development"
   },
   "eslintConfig": {
     "extends": [
