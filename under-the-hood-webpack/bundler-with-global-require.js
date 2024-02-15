@@ -67,9 +67,7 @@ function generateRuntimeCode() {
   let metadata = '';
   let fileToId = '';
   dependanceArray.forEach(obj => {
-    metadata += `${obj.id}: [
-      function(exports){ ${obj.code} },
-    ],`
+    metadata += `${obj.id}:function(exports){${obj.code}},`
   })
 
   fileNameToIdIndex.forEach((file,index) => {
@@ -79,12 +77,12 @@ function generateRuntimeCode() {
   return `(function(metadata,fileToIdMapping){
     window.require = function require(fileName){
       const id = fileToIdMapping[fileName];
-      const [f] = metadata[id];
+      const f = metadata[id];
       let expObject = {};
       f(expObject);
       return expObject;
     } 
-    const mainFunction = metadata['0'][0];
+    const mainFunction = metadata['0'];
     mainFunction();
   })({${metadata}},{${fileToId}})`
 }

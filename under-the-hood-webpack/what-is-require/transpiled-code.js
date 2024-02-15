@@ -19,4 +19,6 @@ exports.default = _default;
 //   var _default = message;
 //   exports.default = _default; 
 // }
-// fn({})
+// let exportObject = {}
+// fn(exportObject)
+// console.log(exportObject);
